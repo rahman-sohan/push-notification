@@ -20,7 +20,6 @@ import { NotificationProcessor } from './notifications.processor';
 		]),
 	],
 	controllers: [NotificationsController],
-	providers: [NotificationsService, NotificationProcessor],
-	exports: [NotificationsService],
+	providers: [NotificationsService, NotificationProcessor]
 })
 export class NotificationsModule {}

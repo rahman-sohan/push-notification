@@ -7,9 +7,7 @@ const admin = initializeFirebaseAdmin();
 @Injectable()
 export class NotificationsService implements OnModuleInit  {
 	constructor(private readonly usersServices: UsersService) {}
-	private readonly logger = new Logger(NotificationsService.name);
-    private notificationQueueClient: ClientProxy;
-	
+	private readonly logger = new Logger(NotificationsService.name);	
 	onModuleInit() { this.usersServices.seedUsers(); }
 
 	async sendPushNotification(title: string, message: string) {
