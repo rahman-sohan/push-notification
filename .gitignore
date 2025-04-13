@@ -3,4 +3,3 @@
 /node_modules
 
 .env
-src/lib/config/firebase.config.ts
