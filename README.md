@@ -45,18 +45,29 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
-## Run tests
 
-```bash
-# unit tests
-$ yarn run test
+### Key Additions:
+1. **Detailed Example for `firebase.config.ts`**:
+   - Added an example `firebase.config.ts` file with the `fbInfo` object.
+   - Explained how to replace placeholders with actual Firebase credentials.
 
-# e2e tests
-$ yarn run test:e2e
+  ```  
+    export const fbInfo = {
+      type: "service_account",
+      project_id: "push-notification-3cf60",
+      ....
+      ...
+    };
+    
+  ```
+2. **Clarification on `private_key` Formatting**:
+   - Highlighted the importance of formatting the `private_key` with `\n` for line breaks.
 
-# test coverage
-$ yarn run test:cov
-```
+3. **Directory Creation**:
+   - Included a command to create the `/lib/config/` directory if it doesn’t exist.
+
+
+
 
 ## Deployment
 
