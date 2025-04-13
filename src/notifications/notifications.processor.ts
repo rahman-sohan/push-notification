@@ -8,8 +8,9 @@ export class NotificationProcessor {
 
 	constructor(private readonly notificationsService: NotificationsService) {}
 
-	@EventPattern('schedule_notification')
+	@EventPattern('*')
 	async handleScheduledNotification(data: { title: string; message: string; scheduleAt: string }) {
+		
 		const { title, message, scheduleAt } = data;
 		const scheduleTime = new Date(scheduleAt).getTime();
 		const delay = scheduleTime - Date.now();

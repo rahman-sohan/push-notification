@@ -10,20 +10,7 @@ export class NotificationsService implements OnModuleInit  {
 	private readonly logger = new Logger(NotificationsService.name);
     private notificationQueueClient: ClientProxy;
 	
-	onModuleInit() {
-        this.notificationQueueClient = ClientProxyFactory.create({
-            transport: Transport.RMQ,
-            options: {
-                urls: ['amqp://localhost:5672'], 
-                queue: 'notification_queue', 
-                queueOptions: { durable: true },
-            },
-        });
-
-        this.logger.log('RabbitMQ client initialized for notification queue.');
-
-		this.usersServices.seedUsers();
-    }
+	onModuleInit() { this.usersServices.seedUsers(); }
 
 	async sendPushNotification(title: string, message: string) {
 		const tokens = await this.usersServices.getAllUsersDeviceTokens();	
