@@ -25,6 +25,7 @@
     "@nestjs/microservices": "^11.0.14",
     "@nestjs/mongoose": "^11.0.3",
     "@nestjs/platform-express": "^11.0.1",
+    "amqp-connection-manager": "^4.1.14",
     "amqplib": "^0.10.7",
     "firebase-admin": "^13.2.0",
     "mongoose": "^8.13.2",

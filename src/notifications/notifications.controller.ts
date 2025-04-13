@@ -2,7 +2,7 @@ import { Controller, Post, Body, Inject } from '@nestjs/common';
 import { NotificationsService } from './notifications.service';
 import { ClientProxy } from '@nestjs/microservices';
 
-@Controller('push')
+@Controller('/api/v1/push')
 export class NotificationsController {
 	constructor(
 		private readonly notificationService: NotificationsService,
@@ -17,9 +17,7 @@ export class NotificationsController {
 	}
 
 	@Post('schedule')
-	async schedule(
-		@Body() body: { title: string; message: string; scheduleAt: string },
-	) {
+	async schedule(@Body() body: { title: string; message: string; scheduleAt: string }) {
 		const { title, message, scheduleAt } = body;
 		const scheduleDate = new Date(scheduleAt).getTime();
 

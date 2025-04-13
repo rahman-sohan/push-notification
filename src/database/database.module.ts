@@ -14,5 +14,6 @@ import { User, UserSchema } from './entities/users.entity';
 		]),
 	],
 	providers: [DatabaseService],
+	exports: [DatabaseService],
 })
 export class DatabaseModule {}

@@ -9,11 +9,7 @@ export class NotificationProcessor {
 	constructor(private readonly notificationsService: NotificationsService) {}
 
 	@EventPattern('schedule_notification')
-	async handleScheduledNotification(data: {
-		title: string;
-		message: string;
-		scheduleAt: string;
-	}) {
+	async handleScheduledNotification(data: { title: string; message: string; scheduleAt: string }) {
 		const { title, message, scheduleAt } = data;
 		const scheduleTime = new Date(scheduleAt).getTime();
 		const delay = scheduleTime - Date.now();
@@ -21,16 +17,11 @@ export class NotificationProcessor {
 		if (delay > 0) {
 			this.logger.log(`Notification scheduled in ${delay}ms`);
 			setTimeout(async () => {
-				await this.notificationsService.sendPushNotification(
-					title,
-					message,
-				);
+				await this.notificationsService.sendPushNotification(title, message);
 				this.logger.log('Scheduled notification sent.');
 			}, delay);
 		} else {
-			this.logger.warn(
-				'Invalid schedule time. Sending notification immediately.',
-			);
+			this.logger.warn('Invalid schedule time. Sending notification immediately.');
 			await this.notificationsService.sendPushNotification(title, message);
 		}
 	}
