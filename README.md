@@ -48,8 +48,7 @@ $ yarn run start:prod
 
 ### Key Additions:
 1. **Detailed Example for `firebase.config.ts`**:
-   - Added an example `firebase.config.ts` file with the `fbInfo` object.
-   - Explained how to replace placeholders with actual Firebase credentials.
+   - Add your firebase congig inside `lib/config/firebase.config.ts` file with the `fbInfo` object.
 
   ```  
     export const fbInfo = {
@@ -60,13 +59,6 @@ $ yarn run start:prod
     };
     
   ```
-2. **Clarification on `private_key` Formatting**:
-   - Highlighted the importance of formatting the `private_key` with `\n` for line breaks.
-
-3. **Directory Creation**:
-   - Included a command to create the `/lib/config/` directory if it doesn’t exist.
-
-
 
 
 ## Deployment
